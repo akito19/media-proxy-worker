@@ -98,10 +98,7 @@ mod tests {
     #[test]
     fn test_missing_referer() {
         let config = create_test_config();
-        assert_eq!(
-            validate_referer(None, &config),
-            RefererValidation::Missing
-        );
+        assert_eq!(validate_referer(None, &config), RefererValidation::Missing);
     }
 
     #[test]
