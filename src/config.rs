@@ -32,7 +32,9 @@ impl Config {
         // Parse ALLOWED_ORIGINS (required)
         let origins_str = env
             .var("ALLOWED_ORIGINS")
-            .map_err(|_| Error::RustError("ALLOWED_ORIGINS environment variable is required".into()))?
+            .map_err(|_| {
+                Error::RustError("ALLOWED_ORIGINS environment variable is required".into())
+            })?
             .to_string();
 
         let allowed_origins: Vec<String> = origins_str
@@ -42,7 +44,9 @@ impl Config {
             .collect();
 
         if allowed_origins.is_empty() {
-            return Err(Error::RustError("ALLOWED_ORIGINS must contain at least one origin".into()));
+            return Err(Error::RustError(
+                "ALLOWED_ORIGINS must contain at least one origin".into(),
+            ));
         }
 
         // Parse BLOCK_NO_REFERER (optional, default: true)
@@ -78,6 +82,9 @@ mod tests {
 
     #[test]
     fn test_default_cache_control() {
-        assert_eq!(Config::DEFAULT_CACHE_CONTROL, "public, max-age=31536000, immutable");
+        assert_eq!(
+            Config::DEFAULT_CACHE_CONTROL,
+            "public, max-age=31536000, immutable"
+        );
     }
 }
