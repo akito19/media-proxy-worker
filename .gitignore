@@ -1,0 +1,22 @@
+# Build artifacts
+/target
+/build
+
+# Wrangler
+wrangler.toml
+.dev.vars
+.wrangler
+
+# Editor
+.idea
+.vscode
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Claude Code
+.claude/

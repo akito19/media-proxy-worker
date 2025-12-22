@@ -1,0 +1,11 @@
+# Copy this file to .dev.vars and set your values
+# cp .dev.vars.example .dev.vars
+
+# Required: Comma-separated list of allowed origins for referer validation
+ALLOWED_ORIGINS=https://localhost:3000,https://example.com
+
+# Optional: Block requests without Referer header (default: true)
+BLOCK_NO_REFERER=true
+
+# Optional: Cache-Control header value
+CACHE_CONTROL=public, max-age=31536000, immutable
